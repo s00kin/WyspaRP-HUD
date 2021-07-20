@@ -1,0 +1,530 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&effect=outline&display=swap");
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+}
+
+.ticket {
+  position: absolute;
+  right: 0;
+  top: 4%;
+  display: flex;
+  margin-right: 7px;
+  opacity: 0.0;
+}
+
+.ticket b {
+  font-size: 20px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin-left: 10px;
+  color: #fff;
+  font-weight: 800;
+  line-height: 16px;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+
+.circle {
+  background-color: #030203;
+  position: absolute;
+  height: 3vh;
+  width: 3vh;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.circle img {
+  position: absolute;
+  max-width: 1.8vh;
+  left: 20%;
+  top: 18.5%;
+}
+
+.container {
+  color: white;
+  position: absolute;
+  width: 351px;
+  height: 345px;
+  display: none;
+}
+
+.map {
+  position: absolute;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+
+.map.big {
+  width: 66.666%;
+}
+
+.map > div {
+  width: 100%;
+  position: absolute;
+}
+
+.map > div > div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.map b, .map .cruise {
+  color: #00aeff;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+.map i {
+  color: #707070;
+  font-style: normal;
+}
+
+.map u, .map .high {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.map s {
+  color: #ffe400;
+  text-decoration: none;
+}
+
+.map .extras {
+  width: 20%;
+  bottom: 10%;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.map.big .extras {
+  bottom: 8%;
+  left: -17%;
+}
+
+.map .details {
+  bottom: -5%;
+  left: 5%;
+}
+
+.map.big .details {
+  bottom: -3%;
+  left: -11%;
+}
+
+.map .vehicle {
+  bottom: -5%;
+  right: 7%;
+  text-align: right;
+}
+
+.map.big .vehicle {
+  bottom: -3%;
+  right: 5%;
+}
+
+.map .vehicle #speed {
+  font-size: 1.2em;
+  right: 6.25%;
+}
+
+.map .nav {
+  width: 20%;
+  bottom: 10%;
+  right: 4%;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.map.big .nav {
+  display: none;
+}
+
+.map .nav #direction img {
+  width: 16px;
+  height: 16px;
+}
+
+.map #belt {
+  bottom: 0;
+  right: 7%;
+  color: #ff0000;
+  text-align: right;
+  width: 16px;
+  height: 16px;
+  background-image: url(../img/belt_off.png);
+  background-size: contain;
+  -webkit-animation: heartbeat 2s infinite;
+}
+
+.map #belt.active {
+  background-image: url(../img/belt_on.png);
+  -webkit-animation: none;
+}
+
+.map.big #belt {
+  bottom: 1.25%;
+  right: 5.5%;
+}
+
+#compass-round {
+  position: absolute;
+  width: 90%;
+  top: 3.5%;
+  left: 4.5%;
+  opacity: 0.8;
+  -webkit-transition: 500ms ease all;
+  transition: 500ms ease all;
+}
+
+#compass-flat {
+  width: 160px;
+  height: 40px;
+  overflow: hidden;
+  float: left;
+  position: absolute;
+  bottom: -4%;
+  left: 25%;
+  opacity: 0.5;
+}
+
+#compass-flat > div {
+  height: 100%;
+  background-position: center center;
+  background-size: 640px;
+  background-repeat: repeat;
+  width: 800%;
+  z-index: 1;
+  background-image: url('../img/compass_flat.png');
+  -webkit-transition: 500ms ease all;
+  transition: 500ms ease all;
+}
+
+.others {
+  position: absolute;
+  bottom: 1%;
+  right: 0.5%;
+  display: flex;
+}
+
+.others > img {
+  display: none;
+  padding: 0 3px;
+  width: 24px;
+}
+
+.others .camera {
+  -webkit-animation: heartbeat 2s infinite;
+}
+
+.others .radio {
+  display: none;
+  width: 24px;
+  height: 24px;
+  padding: 0 3px;
+}
+
+.others .radio > p {
+  position: absolute;
+  top: 5px;
+  left: -100px;
+  width: 100px;
+  text-align: right;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.others .radio > p > b {
+  font-weight: normal;
+  padding-right: 5px;
+}
+
+.others .radio > p > u {
+  text-decoration: none;
+}
+
+.others .radio > img {
+  width: 24px;
+}
+
+.others .radio > span {
+  position: absolute;
+  top: 13px;
+  left: 22px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.axon {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 6%;
+  background-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  font-family: 'Share Tech Mono', sans-serif;
+  font-size: 11px;
+  color: #afafaf;
+}
+
+.axon > div {
+  float: right;
+  width: auto;
+  text-align: right;
+  background-color: rgba(0,0,0,0.5);
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 10px;
+}
+
+.axon > div div {
+  float: right;
+  width: auto;
+  text-align: right;
+  padding: 5px;
+}
+
+.axon .heartbeat {
+  color: #ff0000;
+  top: -0.5px;
+  position: relative;
+}
+
+.axon .axon-date {
+  margin: 0px;
+  padding: 0px;
+}
+
+.inventory {
+  font-family: 'Share Tech Mono', sans-serif;
+  position: absolute; 
+  bottom: 4.5%;
+  right: 0.6%;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.wheel {
+  flex-direction: column;
+  opacity: 0.0;
+}
+
+.wheel #description {
+  position: absolute;
+  width: 200px;
+  text-align: center;
+  top: 46%;
+  left: 45.25%;
+}
+
+.wheel #description img {
+  width: 32px;
+  height: 32px;
+}
+
+.wheel #description div {
+  font-size: 0.2em;
+  font-family: 'Kanit', sans-serif;
+  letter-spacing: 0.25px;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.wheel #items > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wheel #items {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+}
+
+.options {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s;
+  opacity: 0.0;
+  top: 0;
+}
+
+.options img {
+  position: absolute;
+  width: 25%;
+  left: 38%;
+  top: 20%;
+}
+
+.options p {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 0.8vw;
+  width: 30%;
+  left: 35%;
+  top: 50%;
+}
+
+.color-container {
+  position: absolute;
+  color: #e0e0e0;
+  width: 1vw;
+  height: 1vh;
+  left: 50%;
+  top: 55%;
+}
+
+.color-picker {
+  margin-left: 200px;
+}
+
+.heartbeat {
+  -webkit-animation: heartbeat 2s infinite;
+}
+
+@-webkit-keyframes pulse-red {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 #640101;
+            box-shadow: 0 0 0 0 #640101;
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+
+@keyframes pulse-red {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 #640101;
+            box-shadow: 0 0 0 0 #640101;
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+
+@-webkit-keyframes pulse-blue {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 #0a90dd;
+            box-shadow: 0 0 0 0 #0a90dd;
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+            box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+            box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+  }
+}
+
+@keyframes pulse-blue {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 #0a90dd;
+            box-shadow: 0 0 0 0 #0a90dd;
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+            box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+            box-shadow: 0 0 0 10px rgba(4, 142, 223, 0);
+  }
+}
+
+@keyframes heartbeat {
+  0% {opacity: 0.0;}
+  50% {opacity: 1.0;}
+  100% {opacity: 0.0;}
+}
